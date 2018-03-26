@@ -5,7 +5,7 @@ $(document).ready(function(){
   var tempUnit = 'C';
 
 
-
+  
   
   // seting latitude and longitude to current position
  if(navigator.geolocation){
@@ -18,33 +18,31 @@ $(document).ready(function(){
   $.getJSON(api, function(json){
     
     currentTempInCelius = json.main.temp;
-    $('#temp').text(currentTempInCelius + String.fromCharCode(176));
+    $('#temp').text(currentTempInCelius + " " + String.fromCharCode(176));
     $('#tempunit').text(tempUnit);
     $('#city').text(json.name);
     $('#country').text(json.sys.country);
 
     $('#weather').text(json.weather[0].description);
-
-    //farenheight from celius
-
-  function getFTemp(){
-    return Math.ceil((currentTempInCelius * 9/5) + 32);
-  }
-  //unitChanger
-
-  $('#tempunit').on('click', function(){
-    if(tempUnit == C){
-      $('#tempunit').text('F');
-      $('#temp').text(getFTemp());
-    }else{
-      $('#tempunit').text('C');
-      $('#temp').text(currentTempInCelius);
-    }
-  });
   });
 
    });
  }
+
+ $('#tempunit').click(function(){
+  var currentTempUnit = $('#tempunit').text();
+  var newTempUnit = currentTempUnit == "C" ? "F" : "C";
+
+  if(newTempUnit == 'F'){
+    var farTemp = Math.round(parseInt($("#temp").text())* 9/5 + 32);
+
+    $("#temp").text(farTemp + " " + String.fromCharCode(176));
+    $("#tempunit").text(newTempUnit);
+  } else{
+    $("#temp").text(currentTempInCelius + " " + String.fromCharCode(176));
+    $("#tempunit").text(newTempUnit);
+  }
+ });
   
 });
 

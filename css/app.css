@@ -1,0 +1,22 @@
+body{
+  background: black;
+  color: white;
+}
+
+header, section{
+  max-width: 500px;
+  margin: auto;
+}
+
+h1{
+  font-size: 2.8em;
+}
+
+section{
+	text-align: center;
+	font-size: 1.4em;
+}
+
+div{
+	margin: 20px;
+}

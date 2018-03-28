@@ -1,8 +1,14 @@
 body{
-  background: black;
-  color: white;
-}
+  background-color: #161616;
+  color: #fff;
+  font-family: 'Roboto';
 
+}
+#body{
+	max-height: 600px;
+	max-width: 600px;
+	margin: auto;
+}
 header, section{
   max-width: 500px;
   margin: auto;
@@ -23,4 +29,8 @@ div{
 
 #tempunit:hover{
 	color: blue;
+}
+
+#weather{
+	padding-bottom: 200px;
 }

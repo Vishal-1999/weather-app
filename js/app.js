@@ -5,8 +5,7 @@ $(document).ready(function(){
   var tempUnit = 'C';
 
 
-  
-  
+
   // seting latitude and longitude to current position
  if(navigator.geolocation){
    navigator.geolocation.getCurrentPosition(function(position){
@@ -44,5 +43,35 @@ $(document).ready(function(){
   }
  });
   
+ 
+
+ function genIcon(desc){
+  var desc = desc.toLowerCase();
+  switch (desc) {
+    case 'drizzle':
+      addIcon(desc)
+      break;
+    case 'clouds':
+      addIcon(desc)
+      break;
+    case 'rain':
+      addIcon(desc)
+      break;
+    case 'snow':
+      addIcon(desc)
+      break;
+    case 'clear':
+      addIcon(desc)
+      break;
+    case 'thunderstom':
+      addIcon(desc)
+      break;
+    default:
+  }
+ }
+
+ function addIcon(desc){
+  $('.container-fluid').css('background', 'url("img/awe-backgrounds/" + desc + ".jpg")')
+ }
 });
 

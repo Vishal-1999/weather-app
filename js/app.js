@@ -4,7 +4,7 @@ $(document).ready(function(){
   var currentTempInCelius = 0;
   var tempUnit = 'C';
 
-
+  //$('#body').css('background-image', 'url(img/sunny.jpg)');
 
   // seting latitude and longitude to current position
  if(navigator.geolocation){
@@ -15,14 +15,16 @@ $(document).ready(function(){
   var api = 'https://fcc-weather-api.glitch.me/api/current?' + userLat + '&' + userLon;
   
   $.getJSON(api, function(json){
-    
+    console.log(json);
     currentTempInCelius = json.main.temp;
     $('#temp').text(currentTempInCelius + " " + String.fromCharCode(176));
     $('#tempunit').text(tempUnit);
-    $('#city').text(json.name);
+    $('#city').text(json.name + ",");
     $('#country').text(json.sys.country);
 
-    $('#weather').text(json.weather[0].description);
+    $('#weather').text(json.weather[0].main);
+    var desc = $("#weather").text();
+    genIcon(desc);
   });
 
    });
@@ -49,29 +51,31 @@ $(document).ready(function(){
   var desc = desc.toLowerCase();
   switch (desc) {
     case 'drizzle':
-      addIcon(desc)
+      $('#body').css('background-image','url(img/drizzle.jpg)');
       break;
     case 'clouds':
-      addIcon(desc)
+      $('#body').css('background-image', 'url(img/clouds.jpg)');
       break;
     case 'rain':
-      addIcon(desc)
+      $('#body').css('background-image', 'url(img/rain.jpg)');
       break;
     case 'snow':
-      addIcon(desc)
+      $('#body').css('background-image', 'url(img/snow.jpg)');
       break;
     case 'clear':
-      addIcon(desc)
+      $('#body').css('background-image', 'url(img/clear.jpg)');
       break;
     case 'thunderstom':
-      addIcon(desc)
+      $('#body').css('background-image', 'url(img/thunderstom.jpg)');
+      break;
+    case 'haze':
+      $('#body').css('background-image', 'url(img/hail.jpg)');
       break;
     default:
+      $("#body").css('background', 'url(img/windy.jpg)');
   }
  }
 
- function addIcon(desc){
-  $('.container-fluid').css('background', 'url("img/awe-backgrounds/" + desc + ".jpg")')
- }
+ 
 });
 

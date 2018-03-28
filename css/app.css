@@ -1,17 +1,22 @@
 body{
-  background-color: #161616;
-  color: #fff;
+  background: #161616;
+	
+  color: #161616;
   font-family: 'Roboto';
+  padding-top: 25px;
 
 }
 #body{
+	padding-top: 40px;
 	max-height: 600px;
 	max-width: 600px;
 	margin: auto;
+	
 }
 header, section{
   max-width: 500px;
   margin: auto;
+ 
 }
 
 h1{
@@ -20,7 +25,8 @@ h1{
 
 section{
 	text-align: center;
-	font-size: 1.4em;
+	font-size: 2em;
+	padding-top: 20px;
 }
 
 div{
